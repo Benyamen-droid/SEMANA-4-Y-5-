@@ -1,0 +1,45 @@
+class ComboFastFood:
+    def __init__(self):
+        self.hamburguesa = None
+        self.bebida      = None
+        self.papas       = None
+ 
+    def __str__(self):
+        return (f"Hamburguesa: {self.hamburguesa}\n"
+                f"Bebida:      {self.bebida}\n"
+                f"Papas:       {self.papas}")
+ 
+class ComboBuilder:
+    def __init__(self):
+        self.combo = ComboFastFood()
+ 
+    def add_hamburguesa(self, tipo):
+        self.combo.hamburguesa = tipo
+        return self
+ 
+    def add_bebida(self, bebida):
+        self.combo.bebida = bebida
+        return self
+ 
+    def add_papas(self, tamano):
+        self.combo.papas = tamano
+        return self
+ 
+    def build(self):
+        return self.combo
+ 
+# Combo clasico
+combo1 = (ComboBuilder()
+           .add_hamburguesa("Doble con queso")
+           .add_bebida("Coca-Cola grande")
+           .add_papas("Mediano")
+           .build())
+print("=== COMBO 1 ==="); print(combo1)
+ 
+# Combo vegetariano
+combo2 = (ComboBuilder()
+           .add_hamburguesa("Veggie Burger")
+           .add_bebida("Agua mineral")
+           .add_papas("Pequeno")
+           .build())
+print("\n=== COMBO 2 ==="); print(combo2)
