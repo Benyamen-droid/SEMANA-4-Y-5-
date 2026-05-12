@@ -1,0 +1,31 @@
+class Transporte:
+    def entregar(self):
+        pass
+ 
+class Camion(Transporte):
+    def entregar(self):
+        return "Entrega por carretera"
+ 
+class Barco(Transporte):
+    def entregar(self):
+        return "Entrega por mar"
+ 
+class Avion(Transporte):
+    def entregar(self):
+        return "Entrega por aire"
+ 
+class Factory:
+    @staticmethod
+    def get_transporte(tipo):
+        transportes = {
+            "camion": Camion(),
+            "barco":  Barco(),
+            "avion":  Avion()
+        }
+        return transportes.get(tipo, None)
+ 
+# Prueba
+for medio in ["camion", "barco", "avion"]:
+    t = Factory.get_transporte(medio)
+    if t:
+        print(t.entregar())
